@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title= full_title yield :title
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = render "layouts/shim"
+  %body
+    - # todo make helper
+    #background
+      - line_colors = ["#78c5d6", "#459ba8", "#79c267", "#c5d647", "#f5d63d", "#f28c33", "#e868a2", "#bf62a6"]
+      - line_colors.each do |line_color|
+        .line{:style => "background-color: #{line_color};"}
+
+    = render "layouts/header"
+    #main-wrapper.container
+      = yield
+      = debug(params) if Rails.env.development?

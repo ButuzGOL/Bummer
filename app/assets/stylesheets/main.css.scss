@@ -1,0 +1,93 @@
+@import "bootstrap/bootstrap";
+
+// todo marge font-color with bootstrap
+// todo make hover
+// todo avatar make gradient
+// todo remove images and make it using css
+// todo long text cut it
+
+/* Mixins */
+@mixin box {
+  @include border-radius(8px); min-height: 20px; margin: 20px 0;
+  $shadow: 0 5px 20px rgba(0,0,0,.7); @include box-shadow($shadow);
+  @include gradient-vertical(#404040, #292929); padding: 10px; 
+}
+
+/* Variables */
+
+/* Init */
+ul, li { list-style: none; margin: 0; padding: 0; }
+a, a:hover { text-decoration: none; }
+
+/* Background */
+#background {
+  // todo something wrong width float numbers
+  .line { position: absolute; height: 100%; z-index: -1;
+    $count-lines: 8;
+    $line-width: 100% / $count-lines;
+    width: $line-width;
+    @for $i from 1 through $count-lines {
+      &:nth-child(#{$i}) { margin-left: $line-width * $i - $line_width; }
+    }
+  }
+}
+
+/* Header */
+body>header {
+  height: $navbarHeight;
+  ul.top-nav {
+    &.main { position: absolute; left: 50%; margin-left: -80px; }
+    li {
+      position: relative;
+      &>* { cursor: pointer; }
+      a { display: block; text-indent: -99999px; width: 40px; height: $navbarHeight; padding: 0 !important; line-height: 43px; }
+      .hover { width: 16px; height: 16px; position: absolute; background-image: asset-url('nbm-to-hover.png', image);
+               top: 23px; left: 2px; display: none; }
+      .count { width: 20px; height: 20px; position: absolute; background-image: asset-url('nbm-show-count.png', image);
+               top: 2px; right: -5px; color: $white; font-size: 9px; text-align: center; font-weight: 900;
+               line-height: 17px;
+      }
+      &:hover .hover { display: block; }
+      &.active { background-color: #141414;   height: $navbarHeight - 1;
+                 $shadow: 0 1px 6px rgba(255,255,255,.35), inset 0 1px 10px rgba(0,0,0,1);
+                 @include box-shadow($shadow);
+      }
+      &.text a { text-indent: 5px; }
+      &.home a { background: asset-url('nbm-home.png', image) no-repeat 7px 6px; }
+      &.signin {
+        a { width: 86px; background: asset-url('nbm-signin.png', image) no-repeat 55px 6px; }
+        .hover { left: 50px; }
+      }
+    }
+  }
+}
+
+/* Footer */
+#footer { 
+  @include box;
+  font-weight: bold;
+  .brand { padding: 0; }
+  .social { float: right;
+    &>* { text-indent: -99999px; display: block; float: left; }
+    .twitter { background-image: asset-url('twitter-icon.png', image); width: 31px; height: 23px;
+               margin-right: 5px;
+    }
+    .facebook { background-image: asset-url('facebook-icon.png', image); width: 13px; height: 26px; }
+  }
+  .by { color: $gray; font-size: 11px; margin-top: 5px; }
+  .links { ul li { margin-right: 5px; display: inline-block;
+      a { color: $gray; font-size: 11px; &:hover { color: $linkColorHover; } }
+    }
+  }
+}
+
+/* Other */
+.brand { float: left; display: block; font-size: 20px; font-weight: bold;
+  padding: (($navbarHeight - $baseLineHeight) / 2) 20px (($navbarHeight - $baseLineHeight) / 2) 0;
+  color: $navbarBrandColor;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.5);
+  @include transition(all .2s linear);
+  &:hover { text-decoration: none; }
+}
+
+@import "static_pages"
