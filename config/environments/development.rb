@@ -34,4 +34,10 @@ Bummer::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Only use best-standards-support built into browsers
+  config.action_dispatch.best_standards_support = :builtin
+
+  # Add the config.action_mailer.default_url_options
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
