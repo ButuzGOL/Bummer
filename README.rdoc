@@ -7,3 +7,5 @@ Discuss books, films, games...
 1. bundle install
 2. bundle exec rake db:migrate
 3. bundle exec rake db:seed
+
+== TEST add GIT @Fon ==
