@@ -7,11 +7,6 @@
 // todo long text cut it
 
 /* Mixins */
-@mixin box {
-  @include border-radius(8px); min-height: 20px; margin: 20px 0;
-  $shadow: 0 5px 20px rgba(0,0,0,.7); @include box-shadow($shadow);
-  @include gradient-vertical(#404040, #292929); padding: 10px; 
-}
 
 /* Variables */
 
@@ -23,11 +18,11 @@ a, a:hover { text-decoration: none; }
 #background {
   // todo something wrong width float numbers
   .line { position: absolute; height: 100%; z-index: -1;
-    $count-lines: 8;
-    $line-width: 100% / $count-lines;
-    width: $line-width;
-    @for $i from 1 through $count-lines {
-      &:nth-child(#{$i}) { margin-left: $line-width * $i - $line_width; }
+    $countLines: 8;
+    $lineWidth: 100% / $countLines;
+    width: $lineWidth;
+    @for $i from 1 through $countLines {
+      &:nth-child(#{$i}) { margin-left: $lineWidth * $i - $lineWidth; }
     }
   }
 }
@@ -52,19 +47,19 @@ body>header {
                  $shadow: 0 1px 6px rgba(255,255,255,.35), inset 0 1px 10px rgba(0,0,0,1);
                  @include box-shadow($shadow);
       }
-      &.text a { text-indent: 5px; }
+      &.with-text a { text-indent: 5px; }
       &.home a { background: asset-url('nbm-home.png', image) no-repeat 7px 6px; }
-      &.signin {
+      &.sign-in {
         a { width: 86px; background: asset-url('nbm-signin.png', image) no-repeat 55px 6px; }
         .hover { left: 50px; }
       }
+      &.sign-out a { background: asset-url('nbm-signout.png', image) no-repeat 5px 6px; }
     }
   }
 }
 
 /* Footer */
-#footer { 
-  @include box;
+#footer { @include gradient-vertical(#404040, #292929); padding: 10px; border: 0;
   font-weight: bold;
   .brand { padding: 0; }
   .social { float: right;
@@ -90,4 +85,20 @@ body>header {
   &:hover { text-decoration: none; }
 }
 
-@import "static_pages"
+.block { @include border-radius(8px); min-height: 20px; margin: 20px 0; border: 1px solid #d1d1d1; background-color: #fff;
+  $shadow: 0 5px 20px rgba(0,0,0,.7); @include box-shadow($shadow);
+  &>header { border-bottom: 1px solid #f0f0f0; padding: 10px; @include clearfix(); overflow: hidden; height: 100%;
+           position: relative;
+    &>* { z-index: 2; position: relative; }
+    .gradient { width: 100%; height: 20px; @include gradient-vertical($white, #f6f6f6); position: absolute;
+              bottom: 0; left: 0; z-index: 1;
+    }
+    .title { color: $gray; font-size: 20px; font-weight: bold; float: left; }
+    .icon { float: right; }
+  }
+  .form { padding: 10px; }
+  .content { padding: 10px; }
+}
+
+@import "static_pages";
+@import "sessions";

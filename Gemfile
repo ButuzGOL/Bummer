@@ -4,6 +4,7 @@ gem "rails", "3.2.9"
 gem "jquery-rails"
 gem "haml-rails", "~> 0.3.5"
 gem "devise", "~> 2.1.2"
+gem "client_side_validations", "~> 3.2.1"
 
 # Bundle edge Rails instead:
 # gem "rails", :git => "git://github.com/rails/rails.git"

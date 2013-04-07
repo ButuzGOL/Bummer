@@ -8,4 +8,9 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  # Return is site width divide
+  def is_divide_site_width?
+    params[:controller] == "devise/registrations"
+  end
 end
