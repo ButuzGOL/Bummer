@@ -1,0 +1,9 @@
+/* Sign Up */
+#sign-up {
+  form {
+    &>div { 
+      margin-right: 20px; position: relative;
+      .wrapper { margin-right: 60px; }
+    }
+  }
+}

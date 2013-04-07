@@ -1,0 +1,33 @@
+%section.block#sign-up
+  %header
+    .title
+      Join Us
+    .gradient
+    / todo add .icon
+  .form
+    %form.clearfix
+      .name
+        %input.input-full(placeholder='Type a name' type='text')
+        .validation.validation-true
+          .icon
+      .email
+        %input.input-full(placeholder='Type email' type='text')
+        .validation.validation-false
+          .icon
+          .text
+            Already taken
+      .password
+        .wrapper
+          %input.input-full.with-strength(placeholder='Password' type='password')
+        / todo change color of pass-strength gradient
+        .password-strength
+          .progress.progress-success
+            .bar{:style => "width: 40%"}
+        .validation.validation-true
+          .icon
+          .text
+            Password is ok.
+      %footer
+        %input.btn.btn-primary.pull-right(type='submit' value='CREATE ACCOUNT')
+
+= render "layouts/footer"
