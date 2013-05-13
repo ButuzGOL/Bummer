@@ -1,9 +1,52 @@
+#sign-up, #sign-in {
+  form {
+    &>div { 
+      margin-right: 20px; position: relative;
+    }
+  }
+}
+
 /* Sign Up */
 #sign-up {
   form {
     &>div { 
-      margin-right: 20px; position: relative;
       .wrapper { margin-right: 60px; }
+    }
+  }
+}
+
+/* Sign in */
+#sign-in {
+  form {
+    &>div {
+      .wrapper {
+        margin-right: 80px;
+        input { padding-right: 90px; }
+        a { right: -90px; }
+      }
+      &.checkbox { position: absolute; margin: 3px 0 0 235px; }
+    }
+    footer {
+      .social { float: left; }
+    }
+  }
+
+  @mixin social-sign-in($startColor, $endColor) {
+    font-size: 12px; display: inline-block; padding: 5px 10px 5px 45px; height: 20px; position: relative;
+    @include border-radius(2px);
+    @include buttonBackground($startColor, $endColor, $white, 0 1px 1px rgba(255,255,255,.75));
+    &:hover { color: $white; }
+    .line { position: absolute; top: -1px; left: 33px; border-left: 1px solid $endColor; height: 100%; }
+  }
+
+  .facebook-sign-in { @include social-sign-in(#8ca9c7, #5d719b); 
+    .icon { position: absolute; top: 6px; left: 10px; background-image: asset-url('facebook-sign-in-icon.png', image); 
+      width: 13px; height: 26px;
+    }
+  }
+  .twitter-sign-in { @include social-sign-in(#69d7f1, #46b9e6); 
+    .icon { position: absolute; top: 7px; left: 6px; background-image: asset-url('twitter-sign-in-icon.png', image); 
+      width: 21px; height: 16px;
     }
   }
 }

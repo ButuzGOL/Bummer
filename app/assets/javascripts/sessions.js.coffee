@@ -26,3 +26,5 @@ $(document).ready ->
   #     # $(_this).data('changed', true).isValid(window.ClientSideValidations.forms.new_user.validators)
   #     # $(this).focus()
   #   ), 1000
+
+  $('input[type=checkbox]').prettyCheckable()

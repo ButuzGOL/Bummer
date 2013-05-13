@@ -1,17 +1,17 @@
 %header
   .navbar.navbar-fixed-top
     .navbar-inner
-      .container{:class => "#{'half' if is_divide_site_width?}"}
-        = link_to "Bummer", root_path, :class => "brand"
+      .container{ class: "#{'half' if is_divide_site_width?}"}
+        = link_to 'Bummer', root_path, class: 'brand'
         .nav-collapse
           - if user_signed_in?
             %ul.nav.pull-right.top-nav
               %li.sign-out
-                = link_to "Sign out", destroy_user_session_path, :method => :delete
+                = link_to 'Sign out', destroy_user_session_path, method: :delete
                 .hover
           - else
             %ul.nav.pull-right.top-nav
               %li.with-text.sign-in
-                = link_to "Sign in", "#"
+                = link_to 'Sign in', '#'
                 .hover
           

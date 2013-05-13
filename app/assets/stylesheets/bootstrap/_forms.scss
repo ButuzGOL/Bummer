@@ -8,6 +8,18 @@
 
 // Make all forms have space below them
 form {
+  .wrapper {
+    position: relative;
+    a {
+      position: absolute;
+      right: 0;
+      color: $grayLight;
+      top: 10px;
+      &:hover {
+        color: $linkColorHover;
+      }
+    }
+  }
 }
 
 fieldset {
@@ -54,6 +66,7 @@ textarea {
 label {
   display: block;
   margin-bottom: 5px;
+  color: $grayLight;
 }
 
 // Form controls
@@ -227,7 +240,7 @@ textarea {
 .radio,
 .checkbox {
   min-height: $baseLineHeight; // clear the floating input if there is no label text
-  padding-left: 20px;
+  // padding-left: 20px;
 }
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
@@ -735,6 +748,11 @@ legend + .control-group {
 
 // Others
 // ------
+.checkbox {
+  @include clearfix();
+  margin-left: -6px;
+}
+
 .password-strength {
   position: absolute; right: 0; top: 0;
   margin-right: -(10px + 1);

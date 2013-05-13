@@ -1,10 +1,10 @@
 @import "bootstrap/bootstrap";
 
-// todo marge font-color with bootstrap
-// todo make hover
-// todo avatar make gradient
-// todo remove images and make it using css
-// todo long text cut it
+// TODO: marge font-color with bootstrap
+// TODO make hover
+// TODO avatar make gradient
+// TODO remove images and make it using css
+// TODO long text cut it
 
 /* Mixins */
 
@@ -16,7 +16,7 @@ a, a:hover { text-decoration: none; }
 
 /* Background */
 #background {
-  // todo something wrong width float numbers
+  // TODO something wrong width float numbers
   .line { position: absolute; height: 100%; z-index: -1;
     $countLines: 8;
     $lineWidth: 100% / $countLines;
@@ -88,10 +88,10 @@ body>header {
 .block { @include border-radius(8px); min-height: 20px; margin: 20px 0; border: 1px solid #d1d1d1; background-color: #fff;
   $shadow: 0 5px 20px rgba(0,0,0,.7); @include box-shadow($shadow);
   &>header { border-bottom: 1px solid #f0f0f0; padding: 10px; @include clearfix(); overflow: hidden; height: 100%;
-           position: relative;
+              position: relative;
     &>* { z-index: 2; position: relative; }
     .gradient { width: 100%; height: 20px; @include gradient-vertical($white, #f6f6f6); position: absolute;
-              bottom: 0; left: 0; z-index: 1;
+                bottom: 0; left: 0; z-index: 1;
     }
     .title { color: $gray; font-size: 20px; font-weight: bold; float: left; }
     .icon { float: right; }
@@ -102,3 +102,4 @@ body>header {
 
 @import "static_pages";
 @import "sessions";
+@import "plugins";
