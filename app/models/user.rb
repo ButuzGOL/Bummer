@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :login
   
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
 
   validates :email, presence: true, format: { with: Devise.email_regexp },
                     uniqueness: { case_sensitive: false }
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { value: login.downcase }]).first
+      where(conditions).where(["lower(username) = lower(:value) OR lower(email) = lower(:value)", { value: login.downcase }]).first
     else
       where(conditions).first
     end

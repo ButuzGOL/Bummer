@@ -28,3 +28,16 @@ $(document).ready ->
   #   ), 1000
 
   $('input[type=checkbox]').prettyCheckable()
+
+  $('form#sign_in').bind 'ajax:success', (e, data, status, xhr) ->
+    if $(this).find('.validation').length
+      $(this).find('.validation').remove()
+
+    if data.success
+      window.location = data.data.redirect_url
+    else
+      $error_template = $('<div class="validation validation-false"><div class="icon"></div><div class="message"></div></div>')
+      $error_template.find('.message').text data.errors[0]
+      
+      $(this).find('.login').append $error_template
+

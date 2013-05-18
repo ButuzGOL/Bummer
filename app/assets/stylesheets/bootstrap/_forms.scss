@@ -714,7 +714,7 @@ legend + .control-group {
   }
   .message {
     font-size: 12px; font-weight: bold;
-    margin: 5px 8px 0 0;
+    margin: 4px 8px 0 0;
   }
   &.validation-true {
     @include gradient-vertical(#C2E28E, #95c15a);

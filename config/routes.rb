@@ -3,7 +3,7 @@ Bummer::Application.routes.draw do
 
   get "static_pages/home"
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'sessions' }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
