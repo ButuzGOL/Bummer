@@ -17,7 +17,7 @@
         = f.check_box :remember_me, 'data-label' => 'Remember me'
       %footer
         .social
-          = link_to '#', class: 'btn facebook-sign-in' do
+          = link_to user_omniauth_authorize_path(:facebook), class: 'btn facebook-sign-in' do
             Sign In
             .icon
             .line

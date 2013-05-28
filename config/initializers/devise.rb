@@ -1,13 +1,15 @@
+require 'omniauth-facebook'
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
-  # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  # note that it will be overwritten if you use your own mailer class with default 'from' parameter.
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = "Devise::Mailer"
+  # config.mailer = 'Devise::Mailer'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -57,8 +59,8 @@ Devise.setup do |config|
   # If http headers should be returned for AJAX requests. True by default.
   config.http_authenticatable_on_xhr = false
 
-  # The realm used in Http Basic Authentication. "Application" by default.
-  # config.http_authentication_realm = "Application"
+  # The realm used in Http Basic Authentication. 'Application' by default.
+  # config.http_authentication_realm = 'Application'
 
   # It will change confirmation, password recovery and other workflows
   # to behave the same regardless if the e-mail provided was right or wrong.
@@ -82,7 +84,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "2e6273e4abac72a830bec2cbaf66fb6b711043f53692d1991b96d3bde1f46e2cef18e7dff7320d9c1755e08bc9a1d0061a1a5b8e64f249456d80e74c866711c0"
+  # config.pepper = '2e6273e4abac72a830bec2cbaf66fb6b711043f53692d1991b96d3bde1f46e2cef18e7dff7320d9c1755e08bc9a1d0061a1a5b8e64f249456d80e74c866711c0'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -175,8 +177,8 @@ Devise.setup do |config|
   # config.token_authentication_key = :auth_token
 
   # ==> Scopes configuration
-  # Turn scoped views on. Before rendering "sessions/new", it will first check for
-  # "users/sessions/new". It's turned off by default because it's slower if you
+  # Turn scoped views on. Before rendering 'sessions/new', it will first check for
+  # 'users/sessions/new'. It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = false
 
@@ -196,7 +198,7 @@ Devise.setup do |config|
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists.
   #
-  # The "*/*" below is required to match Internet Explorer requests.
+  # The '*/*' below is required to match Internet Explorer requests.
   config.navigational_formats = [:html, :json]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
@@ -206,6 +208,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :facebook, '644334695581579', '9ae663daf03b1277fa2a41937d033398'
+  config.omniauth :twitter, 'EL2V2w7kXS10vojnNxKhQ', '55tzSy31wSOfnMIRj2eZqFQdjZojDBBaokaLxOwQ'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -221,12 +225,12 @@ Devise.setup do |config|
   # is mountable, there are some extra configurations to be taken into account.
   # The following options are available, assuming the engine is mounted as:
   #
-  #     mount MyEngine, at: "/my_engine"
+  #     mount MyEngine, at: '/my_engine'
   #
   # The router that invoked `devise_for`, in the example above, would be:
   # config.router_name = :my_engine
   #
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
-  # config.omniauth_path_prefix = "/my_engine/users/auth"
+  # config.omniauth_path_prefix = '/my_engine/users/auth'
 end

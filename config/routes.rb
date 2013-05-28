@@ -3,7 +3,15 @@ Bummer::Application.routes.draw do
 
   get "static_pages/home"
 
-  devise_for :users, controllers: { sessions: 'sessions' }
+  devise_for :users, controllers: { 
+    sessions: 'sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
+  devise_for :users, :controllers => {
+      :registrations => "registrations",
+      :omniauth_callbacks => "users/omniauth_callbacks"
+  }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
