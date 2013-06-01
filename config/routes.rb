@@ -1,7 +1,7 @@
 Bummer::Application.routes.draw do
-  root to: "static_pages#home"
+  root to: 'static_pages#home'
 
-  get "static_pages/home"
+  get 'static_pages/home'
 
   devise_for :users, controllers: { 
     sessions: 'sessions',
@@ -9,8 +9,8 @@ Bummer::Application.routes.draw do
   }
 
   devise_for :users, :controllers => {
-      :registrations => "registrations",
-      :omniauth_callbacks => "users/omniauth_callbacks"
+      :registrations => 'registrations',
+      :omniauth_callbacks => 'users/omniauth_callbacks'
   }
 
   # The priority is based upon order of creation:
@@ -60,11 +60,11 @@ Bummer::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
+  # You can have the root of your site routed with 'root'
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
 
-  # See how all your routes lay out with "rake routes"
+  # See how all your routes lay out with 'rake routes'
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.

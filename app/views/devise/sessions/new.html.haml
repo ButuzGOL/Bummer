@@ -21,7 +21,7 @@
             Sign In
             .icon
             .line
-          = link_to '#', class: 'btn twitter-sign-in' do
+          = link_to user_omniauth_authorize_path(:twitter), class: 'btn twitter-sign-in' do
             Sign In
             .icon
             .line
