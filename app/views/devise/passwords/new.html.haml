@@ -8,7 +8,7 @@
     = form_for(resource, as: resource_name, url: password_path(resource_name), remote: true, html: { data: { type: :json }, id: 'form-forgot-password' }) do |f|
       = devise_error_messages!
       .login
-        = f.text_field :login, class: 'input-full', placeholder: 'Username or email'
+        = f.text_field :login, class: 'input-full', placeholder: 'Username or email', autofocus: true
       %footer
         = f.submit 'Submit', class: 'btn btn-primary pull-right'
         
