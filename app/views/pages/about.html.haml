@@ -1,0 +1,24 @@
+%section.page#about
+  .row
+    .span4
+      %nav
+        %ul
+          %li
+            = link_to 'Home', '#'
+          %li
+            = link_to 'About', '#', class: 'active'
+      = render 'layouts/footer'  
+    .span8
+      .block
+        %header
+          .title
+            = link_to 'About', '#'
+            - # FIXME: Slash offsets
+            %span
+              \/
+            About
+          .gradient
+          - # TODO: add .icon
+        .content
+          %p 
+            Something about

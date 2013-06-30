@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'haml-rails', '~> 0.3.5'
 gem 'devise', '~> 2.1.2'
 gem 'client_side_validations', '~> 3.2.1'
+gem 'high_voltage', '~> 1.2.3'
 
 gem 'omniauth', '~> 1.1.4'
 gem 'omniauth-twitter', '~> 0.0.16'

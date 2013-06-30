@@ -5,7 +5,6 @@
     = stylesheet_link_tag    'application', :media => 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-    = render 'layouts/shim'
   %body
     - # TODO: make helper
     #background
@@ -14,7 +13,8 @@
         .line{ style: "background-color: #{line_color};" }
 
     = render 'layouts/header'
-    #main-wrapper.container{ class: "#{'half' if is_divide_site_width?}" }
+
+    #main-wrapper.container{ class: "#{divide_site_class}" }
       - flash.each do |key, value|
         = content_tag(:div, value, class: "alert alert-#{key}")
       = yield

@@ -1,7 +1,5 @@
 Bummer::Application.routes.draw do
-  root to: 'static_pages#home'
-
-  get 'static_pages/home'
+  root to: 'high_voltage/pages#show', id: 'home'
 
   devise_for :users, controllers: { 
     sessions: 'sessions',

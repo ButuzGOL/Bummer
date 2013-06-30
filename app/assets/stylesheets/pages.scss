@@ -1,0 +1,23 @@
+.page {
+  nav { background-color: #3f3f3f; margin: 20px 0; 
+        @include border-radius(8px); $shadow: 0 2px 20px rgba(0,0,0,.7); @include box-shadow($shadow);
+        @include gradient-vertical-three-colors(#525252, #494949, 80%, #3a3a3a);
+    ul { padding: 10px;
+      li { margin-bottom: 5px;
+        &:last-child { margin-bottom: 0; }
+        a { padding: 5px 8px; display: block; @include gradient-vertical(#546169, #455057); 
+            border: 1px solid #394953; @include border-radius(5px); 
+            color: $grayLight; font-size: 12px; font-weight: bold; 
+            $shadow: 0 2px 4px rgba(0,0,0,.2); @include box-shadow($shadow);
+            text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+          &.active, &:hover { color: $linkColor; @include gradient-vertical(#5d6b75, #4e5a62); }
+          &:hover { color: $linkColorHover; }
+        }
+      }
+    }
+  }
+  .content { color: $gray; font-size: 13px; }
+}
+
+/* Home Page */
+#home { color: $white; }

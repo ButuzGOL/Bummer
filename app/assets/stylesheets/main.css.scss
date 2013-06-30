@@ -1,4 +1,4 @@
-@import "bootstrap/bootstrap";
+@import 'bootstrap/bootstrap';
 
 // TODO: marge font-color with bootstrap
 // TODO make hover
@@ -100,6 +100,6 @@ body>header {
   .content { padding: 10px; }
 }
 
-@import "static_pages";
-@import "sessions";
-@import "plugins";
+@import 'pages';
+@import 'sessions';
+@import 'plugins';

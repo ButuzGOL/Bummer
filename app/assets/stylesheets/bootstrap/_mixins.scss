@@ -567,6 +567,9 @@
     &.half {
       @include grid-core-span-half($gridColumns, $gridColumnWidth, $gridGutterWidth);  
     }
+    &.two-third {
+      @include grid-core-span-two-third($gridColumns, $gridColumnWidth, $gridGutterWidth); 
+    }
   }
 
   // generate .spanX and .offsetX
@@ -594,6 +597,10 @@
 
 @mixin grid-core-span-half($columns, $gridColumnWidth, $gridGutterWidth) {
   width: (($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1))) / 2;
+}
+
+@mixin grid-core-span-two-third($columns, $gridColumnWidth, $gridGutterWidth) {
+  width: (($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1))) * (2 / 3);
 }
 
 @mixin grid-core-offset($columns, $gridColumnWidth, $gridGutterWidth) {
