@@ -29,7 +29,7 @@ $(document).ready ->
 
   $('input[type=checkbox]').prettyCheckable()
 
-  $('form#sign_in').bind 'ajax:success', (e, data, status, xhr) ->
+  $('#form-sign-in, #form-forgot-password').on 'ajax:success', (e, data, status, xhr) ->
     if $(this).find('.validation').length
       $(this).find('.validation').remove()
 

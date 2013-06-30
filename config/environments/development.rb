@@ -38,6 +38,21 @@ Bummer::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
+  # Mailer
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address:             'smtp.gmail.com',
+    port:                587,
+    domain:              'localhost:3000',
+    user_name:           'butuzgol.7@gmail.com',
+    password:            'welcome777',
+    authentication:      'plain',
+    enable_starttls_auto: true 
+  }
+
   # Add the config.action_mailer.default_url_options
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

@@ -11,6 +11,6 @@ module ApplicationHelper
 
   # Return is site width divide
   def is_divide_site_width?
-    ['devise/registrations', 'sessions'].include?(params[:controller])
+    ['devise/registrations', 'passwords', 'sessions'].include?(params[:controller])
   end
 end
