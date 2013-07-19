@@ -1,0 +1,52 @@
+%section.block.first#profile
+  %header
+    .avatar
+      = link_to image_tag('avatar.png'), '#'
+    .info
+      .name
+        = link_to 'ButuzGOL', '#'
+      .status
+        Adventure into the center of the
+        earth “Mark Twain” ...
+    .counts
+      %div
+        .number
+          15
+        Records
+      %div
+        .number
+          30
+        Discussions
+    .gradient
+  .content
+    .ff
+      .following
+        .turnabout
+          .alt
+            %span
+              18
+            Following
+          .wrapper
+            .left
+            %ul
+              - (0..5).each do |i|
+                %li
+                  .avatar
+                    = link_to image_tag('test-avatar.png'), '#'
+                  .hover
+            .right
+      .followers
+        .turnabout
+          .alt
+            %span
+              25
+            Followers
+          .wrapper
+            .left
+            %ul
+              - (0..5).each do |i|
+                %li
+                  .avatar
+                    = link_to image_tag('test-avatar.png'), '#'
+                  .hover
+            .right

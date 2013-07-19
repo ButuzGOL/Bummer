@@ -1,0 +1,55 @@
+#wall { padding-bottom: 80px; position: relative; z-index: 2;
+  header { height: 18px;
+    .title { float: left; }
+    .add, .remove { cursor: pointer; float: left; margin-top: -2px; }
+    .add { background-image: asset-url('add-record-form.png', image); width: 25px; height: 26px;
+           margin-left: 5px;
+      &:hover { background-image: asset-url('add-record-form-hover.png', image); }
+    }
+    .remove { background-image: asset-url('remove-record-form.png', image); width: 26px; height: 19px;
+              margin-left: -25px;
+      &:hover { background-image: asset-url('remove-record-form-hover.png', image); }
+    }
+  }
+  .content { padding: 0;
+    .records { @include clearfix();
+      .record { border-bottom: 1px solid #f0f0f0;
+        .discussion .new, .social, .more { display: none; }
+        &:hover { background-color: #e5f7fd;
+          .discussion .new, .social, .more { display: block; }
+        }
+      }
+    }
+  }
+
+  .form  {
+    .name, .description { padding-right: 20px; }
+    .description {
+      textarea { height: 60px; resize: none; }
+    }
+    footer { @include clearfix();
+      .stars { float: left;
+        .star { cursor: pointer; background-image: asset-url('star.png', image); width: 25px; height: 26px;
+          float: left;
+          &:hover, &.full { background-image: asset-url('star-full.png', image); }
+        }
+      }
+      .social { margin: 0 auto; width: 120px;
+        label, input { float: left; }
+        label { margin-top: 3px; }
+        .twitter, .facebook { float: left; }
+        .twitter {
+          label { background-image: asset-url('twitter-share-form-icon.png', image); width: 35px;
+            height: 26px; }
+        }
+        .facebook { margin-left: 5px;
+          label { background-image: asset-url('facebook-share-form-icon.png', image); width: 14px;
+            height: 26px; }
+        }
+      }
+      .counter { font-size: 20px; color: $grayLighter; font-weight: bold; float: right; margin: 5px 10px 0 0; }
+      input[type="submit"] { float: right; }
+    }
+  }
+
+}

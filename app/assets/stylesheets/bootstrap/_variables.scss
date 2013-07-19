@@ -21,7 +21,7 @@ $white:                 #fff !default;
 // Accent colors
 // -------------------------
 $blue:                  #049cdb !default;
-$blueLight:             #9FC3E0 !default;
+$blueLight:             #27c3f4 !default;
 $blueDark:              #0064cd !default;
 $green:                 #46a546 !default;
 $greenDark:             #65833C !default;
@@ -275,8 +275,8 @@ $popoverArrowOuterColor:  rgba(0,0,0,.25) !default;
 
 // Default 940px grid
 // -------------------------
-$gridColumns:             12 !default;
-$gridColumnWidth:         60px !default;
+$gridColumns:             16 !default;
+$gridColumnWidth:         40px !default;
 $gridGutterWidth:         20px !default;
 $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;
 

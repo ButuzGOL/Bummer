@@ -49,6 +49,14 @@ body>header {
       }
       &.with-text a { text-indent: 5px; }
       &.home a { background: asset-url('nbm-home.png', image) no-repeat 7px 6px; }
+      &.profile a { background: asset-url('nbm-profile.png', image) no-repeat 7px 6px; }
+      &.message a { background: asset-url('nbm-message.png', image) no-repeat 4px 6px; }
+      &.search {
+        .wrapper { margin-left: 143px; position: relative; }
+        a { background: asset-url('nbm-search.png', image) no-repeat 6px 6px; }
+        .input { position: absolute; top: 0; left: 6px; }
+      }
+      &.setting a { background: asset-url('nbm-setting.png', image) no-repeat 5px 6px; }
       &.sign-in {
         a { width: 86px; background: asset-url('nbm-signin.png', image) no-repeat 55px 6px; }
         .hover { left: 50px; }
@@ -56,6 +64,11 @@ body>header {
       &.sign-out a { background: asset-url('nbm-signout.png', image) no-repeat 5px 6px; }
     }
   }
+}
+
+/* Middle */
+#main-wrapper { margin-top: 20px; margin-bottom: 20px;
+  .main { position: relative; }
 }
 
 /* Footer */
@@ -98,8 +111,83 @@ body>header {
   }
   .form { padding: 10px; }
   .content { padding: 10px; }
+
+  /* ----------- Shared Blocks */
+  /* Profile */
+  &#profile {
+    header {
+      .avatar, .info, .counts { float: left; margin-left: 10px; }
+      .avatar { margin-left: 0px; }
+      .info { width: 165px;
+        .name { font-size: 24px; font-weight: bold; a { color: $gray; &:hover { color: $blueLight; } } }
+        .status { font-size: 13px; font-style: italic; color: $grayLighter; margin-top: 5px; }
+      }
+      .counts { width: 75px; color: $gray; font-size: 13px; font-weight: bold; text-align: center;
+                line-height: 13px;
+        div:nth-child(2) { margin-top: 4px; }
+        .number { font-size: 11px; }
+      }
+    }
+    .content {
+      .ff {
+        .followers { margin-top: 10px; }
+        .turnabout {
+          ul { width: 66px * 4 + 2px * 3; }
+        }
+      }
+    }
+  }
 }
 
+.record { color: $gray; @include clearfix(); padding: 10px;
+  .avatar, .second { float: left; }
+  .second { margin-left: 10px; width: 490px; }
+  header { @include clearfix();
+    .title { background: asset-url('new-discussion.png', image) no-repeat; padding-left: 25px; font-size: 15px;
+             float: left;
+      span { font-weight: bold; }
+    }
+    .name { float: left; font-size: 15px; font-weight: bold;
+      a { color: $gray; &:hover { color: $blueLight; } }
+    }
+    .date { font-size: 10px; font-weight: bold; float: right; }
+  }
+  .middle { margin: 8px 0 13px 0;
+    .title { font-size: 13px; span { font-weight: bold; } }
+    .description { font-size: 12px; }
+  }
+  footer { margin-top: 5px;
+    .stars {
+      .star { background-image: asset-url('star-record.png', image); width: 19px; height: 19px; float: left; }
+    }
+    .like { display: block; margin: -3px 0 0 5px; float: left; height: 24px;
+      .field { color: $white; font-size: 12px; font-weight: bold; padding-top: 2px; text-align: center; }
+      &.one { width: 39px; background-image: asset-url('like-button-one.png', image);
+        .field { padding-left: 17px; width: 20px; }
+      }
+      &.two { width: 44px; background-image: asset-url('like-button-two.png', image);
+        .field { padding-left: 20px; width: 20px; }
+      }
+    }
+    .social { width: 38px; margin: 0 auto;
+      &>* { display: block; text-indent: -99999px; float: left; }
+      .twitter { background-image: asset-url('twitter-share-record-icon.png', image); width: 24px;
+        height: 19px;
+      }
+      .facebook { background-image: asset-url('facebook-share-record-icon.png', image); width: 11px;
+        height: 19px; margin-left: 3px;
+      }
+    }
+    .about { float: right; cursor: pointer; width: 20px; height: 19px;
+      background-image: asset-url('more.png', image);
+    }
+    .reply { float: right; cursor: pointer; width: 20px; height: 19px;
+      background-image: asset-url('reply.png', image);
+    }
+  }
+}
+
+@import 'plugins';
 @import 'pages';
 @import 'sessions';
-@import 'plugins';
+@import 'microposts';

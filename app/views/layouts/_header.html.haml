@@ -5,7 +5,22 @@
         = link_to 'Bummer', root_path, class: 'brand'
         .nav-collapse
           - if user_signed_in?
+            %ul.nav.top-nav.main
+              %li.home
+                = link_to 'Home', root_path
+                .hover
+              %li.profile
+                = link_to 'Profile', '#'
+                .hover
+              %li.message
+                = link_to 'Messages', '#'
+                .hover
+                .count
+                  2
             %ul.nav.pull-right.top-nav
+              %li.setting
+                = link_to 'Settings', '#'
+                .hover
               %li.sign-out
                 = link_to 'Sign out', destroy_user_session_path, method: :delete
                 .hover

@@ -1,4 +1,6 @@
 Bummer::Application.routes.draw do
+  get "microposts/index"
+
   root to: 'high_voltage/pages#show', id: 'home'
 
   devise_for :users, controllers: { 
