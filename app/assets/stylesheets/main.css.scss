@@ -1,10 +1,10 @@
 @import 'bootstrap/bootstrap';
 
 // TODO: marge font-color with bootstrap
-// TODO make hover
-// TODO avatar make gradient
-// TODO remove images and make it using css
-// TODO long text cut it
+// TODO: make hover
+// TODO: avatar make gradient
+// TODO: remove images and make it using css
+// TODO: long text cut it
 
 /* Mixins */
 
@@ -17,7 +17,7 @@ a, a:hover { text-decoration: none; }
 /* Background */
 #background {
   // TODO something wrong width float numbers
-  .line { position: absolute; height: 100%; z-index: -1;
+  .line { position: fixed; height: 100%; z-index: -1;
     $countLines: 8;
     $lineWidth: 100% / $countLines;
     width: $lineWidth;
@@ -115,12 +115,12 @@ body>header {
   /* ----------- Shared Blocks */
   /* Profile */
   &#profile {
-    header {
+    header { height: 100%;
       .avatar, .info, .counts { float: left; margin-left: 10px; }
       .avatar { margin-left: 0px; }
       .info { width: 165px;
         .name { font-size: 24px; font-weight: bold; a { color: $gray; &:hover { color: $blueLight; } } }
-        .status { font-size: 13px; font-style: italic; color: $grayLighter; margin-top: 5px; }
+        .status { font-size: 13px; font-style: italic; color: $grayLight; margin-top: 5px; }
       }
       .counts { width: 75px; color: $gray; font-size: 13px; font-weight: bold; text-align: center;
                 line-height: 13px;
@@ -133,6 +133,28 @@ body>header {
         .followers { margin-top: 10px; }
         .turnabout {
           ul { width: 66px * 4 + 2px * 3; }
+        }
+      }
+    }
+  }
+
+  /* Discussions */
+  &#discussions {
+    header {
+      .icon { width: 22px; height: 20px; background-image: asset-url('discussions-icon.png', image); }
+    }
+    .content {
+      .discus { @include clearfix();
+        .first, .second { float: left; margin-left: 10px; width: 318px / 2 - 5; }
+        .first { margin-left: 0; }
+        .title { color: $blueLight; font-weight: bold; font-size: 15px; }
+        ul { margin-top: 10px;
+          li { background: asset-url('list-style-icon.png', image) no-repeat 0px 5px; padding-left: 15px;
+            a { color: $gray; }
+            .name, .comments { &:hover { color: $blueLight; } }
+            .name { font-size: 11px; }
+            .comments { font-size: 10px; font-style: italic; font-weight: bold; }
+          }
         }
       }
     }
@@ -152,7 +174,7 @@ body>header {
     }
     .date { font-size: 10px; font-weight: bold; float: right; }
   }
-  .middle { margin: 8px 0 13px 0;
+  .middle { margin: 5px 0 13px 0;
     .title { font-size: 13px; span { font-weight: bold; } }
     .description { font-size: 12px; }
   }
@@ -167,6 +189,23 @@ body>header {
       }
       &.two { width: 44px; background-image: asset-url('like-button-two.png', image);
         .field { padding-left: 20px; width: 20px; }
+      }
+    }
+    .discussions {
+      &>* { float: left; margin-left: 5px; }
+      .item { display: block; margin-top: -3px; height: 24px;
+        .field { color: $white; font-size: 12px; font-weight: bold; padding-top: 2px;
+          text-align: center;
+        }
+        &.one { width: 39px; background-image: asset-url('discussion-button-one.png', image);
+          .field { padding-left: 17px; width: 20px; }
+        }
+        &.two { width: 44px; background-image: asset-url('discussion-button-two.png', image);
+          .field { padding-left: 20px; width: 20px; }
+        }
+      }
+      .new { background-image: asset-url('new-discussion.png', image); width: 21px; height: 19px;
+        cursor: pointer;
       }
     }
     .social { width: 38px; margin: 0 auto;
@@ -186,6 +225,40 @@ body>header {
     }
   }
 }
+
+.avatar { width: 58px; height: 58px;
+  img { @include border-radius(5px);
+    $shadow: 0 1px 5px rgba(0,0,0,.4);
+    @include box-shadow($shadow);
+  }
+}
+
+.turnabout {
+  .alt { color: $blueLight; font-size: 11px; font-weight: bold; span { font-size: 15px; } }
+  .wrapper { margin-top: 10px; @include clearfix(); }
+  .left, .right { width: 19px; height: 26px; cursor: pointer; margin-top: 66px / 2 - 26px / 2;  }
+  .left { background-image: asset-url('left-arrow.png', image);
+    &:hover { background-image: asset-url('left-arrow-hover.png', image); }
+  }
+  .right { background-image: asset-url('right-arrow.png', image);
+    &:hover { background-image: asset-url('right-arrow-hover.png', image); }
+  }
+  .left, .right, ul { float: left; }
+  ul { white-space: nowrap; overflow: hidden; font-size: 0; margin: 0px 4px;
+    height: 66px;
+    li { display: inline-block; margin-left: 2px; position: relative; cursor: pointer; width: 66px; height: 66px;
+      &:first-child { margin-left: 0 !important; }
+      &:hover {
+        .hover { display: block; }
+      }
+      .avatar { padding: 4px 0 0 4px; }
+      .hover { background-image: asset-url('avatar-borders.png', image); width: 100%; height: 100%;
+        position: absolute; top: 0; left: 0; display: none;
+      }
+    }
+  }
+}
+
 
 @import 'plugins';
 @import 'pages';

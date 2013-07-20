@@ -26,12 +26,12 @@
                   %input(type='checkbox' id='twitter-share')
                 .facebook
                   %input(type='checkbox' id='facebook-share')
-              %input.btn(type='submit' value='SUBMIT')
+              %input.btn-primary.pull-right.btn(type='submit' value='SUBMIT')
               .counter
                 300
         .content
           .records
-            - (0..3).each do |i|
+            - (0..2).each do |i|
               .record
                 .avatar
                   = link_to image_tag('avatar.png'), '#'
@@ -68,3 +68,5 @@
                     .about
     %aside.span6
       = render 'shared/profile'
+      = render 'shared/discussions'
+      = render 'layouts/footer'

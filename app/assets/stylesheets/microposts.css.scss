@@ -1,4 +1,4 @@
-#wall { padding-bottom: 80px; position: relative; z-index: 2;
+#wall { position: relative; z-index: 2;
   header { height: 18px;
     .title { float: left; }
     .add, .remove { cursor: pointer; float: left; margin-top: -2px; }
@@ -11,7 +11,7 @@
       &:hover { background-image: asset-url('remove-record-form-hover.png', image); }
     }
   }
-  .content { padding: 0;
+  &>.content { padding: 0; padding-bottom: 10px;
     .records { @include clearfix();
       .record { border-bottom: 1px solid #f0f0f0;
         .discussion .new, .social, .more { display: none; }
@@ -22,22 +22,22 @@
     }
   }
 
-  .form  {
+  .form  { border-bottom: 1px solid #f0f0f0;
     .name, .description { padding-right: 20px; }
     .description {
       textarea { height: 60px; resize: none; }
     }
     footer { @include clearfix();
-      .stars { float: left;
+      .stars { float: left; margin-top: 5px;
         .star { cursor: pointer; background-image: asset-url('star.png', image); width: 25px; height: 26px;
           float: left;
           &:hover, &.full { background-image: asset-url('star-full.png', image); }
         }
       }
-      .social { margin: 0 auto; width: 120px;
+      .social { margin: 3px 0 0 95px; width: 120px; float: left;
         label, input { float: left; }
-        label { margin-top: 3px; }
-        .twitter, .facebook { float: left; }
+        label { margin: 3px 0 0 0; }
+        .twitter, .facebook { float: left; line-height: 0; }
         .twitter {
           label { background-image: asset-url('twitter-share-form-icon.png', image); width: 35px;
             height: 26px; }
@@ -47,8 +47,7 @@
             height: 26px; }
         }
       }
-      .counter { font-size: 20px; color: $grayLighter; font-weight: bold; float: right; margin: 5px 10px 0 0; }
-      input[type="submit"] { float: right; }
+      .counter { font-size: 20px; color: $grayLight; font-weight: bold; float: right; margin: 8px 10px 0 0; }
     }
   }
 

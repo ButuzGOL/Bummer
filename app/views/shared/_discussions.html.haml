@@ -1,0 +1,24 @@
+%section.block#discussions
+  %header
+    .title
+      Discussions
+    .icon
+    .gradient
+  .content
+    .discus
+      .first
+        .title
+          Most discussed
+        %ul
+          - (0..5).each do |i|
+            %li
+              = link_to 'Adventure the earth “Mark Twain”', '#', class: 'name'
+              = link_to '(15 comments)', '#', class: 'comments'
+      .second
+        .title
+          Recent added
+        %ul
+          - (0..5).each do |i|
+            %li
+              = link_to 'Adventure the earth “Mark Twain”', '#', class: 'name'
+              = link_to '(15 comments)', '#', class: 'comments'

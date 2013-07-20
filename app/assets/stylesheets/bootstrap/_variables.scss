@@ -13,6 +13,7 @@ $black:                 #000 !default;
 $grayDarker:            #222 !default;
 $grayDark:              #333 !default;
 $gray:                  #666 !default;
+$grayLightA:			#8D9296 !default;
 $grayLight:             #c3c9ce !default;
 $grayLighter:           #eee !default;
 $white:                 #fff !default;
@@ -47,7 +48,7 @@ $linkColorHover:        #27c3f4 !default;
 
 // Typography
 // -------------------------
-$sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$sansFontFamily:        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
 $monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace !default;
 
