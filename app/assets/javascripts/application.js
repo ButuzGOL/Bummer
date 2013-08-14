@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require rails.validations
 //= require sessions
+//= require pages
+//= require microposts
 //= require prettyCheckable
+//= require_directory ./lib
+

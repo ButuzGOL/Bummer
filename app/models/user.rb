@@ -15,7 +15,16 @@ class User < ActiveRecord::Base
 
   validates :email, format: { with: Devise.email_regexp }, 
                     uniqueness: { case_sensitive: false }
-  
+
+  has_many :microposts, dependent: :destroy
+  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: 'followed_id',
+                                   class_name:  'Relationship',
+                                   dependent:   :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
+
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -55,6 +64,22 @@ class User < ActiveRecord::Base
     end
 
     user
+  end
+
+  def microposts_feed
+    Micropost.from_users_followed_by(self)
+  end
+
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
   end
 
 end

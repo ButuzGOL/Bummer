@@ -1,0 +1,21 @@
+= form_for(@micropost) do |f|
+  = f.hidden_field :stars, value: 0
+  .name
+    = f.text_field :name, autofocus: true, class: 'input-full', placeholder: 'Type a name'
+  .description
+    = f.text_area :content, class: 'input-full', placeholder: 'Some words about ...'    
+  %footer
+    .stars
+      .star
+      .star
+      .star
+      .star
+      .star
+    .social
+      .twitter
+        = f.check_box :twitter_share, id: 'twitter-share'
+      .facebook
+        = f.check_box :facebook_share, id: 'facebook-share'
+    = f.submit 'SUBMIT', class: 'btn-primary pull-right btn', disabled: true
+    .counter
+      300

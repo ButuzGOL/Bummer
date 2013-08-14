@@ -1,14 +1,15 @@
 Bummer::Application.routes.draw do
-  get "microposts/index"
+  resources :users, only: [:show]
 
-  root to: 'high_voltage/pages#show', id: 'home'
+  resources :microposts, only: [:create, :destroy]
+
+  root to: 'pages#show', id: 'home'
 
   devise_for :users, controllers: { 
     sessions: 'sessions',
     passwords: 'passwords',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-
 
   devise_for :users, controllers: { 
     registrations: 'registrations',

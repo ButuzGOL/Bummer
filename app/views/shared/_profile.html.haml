@@ -1,52 +1,59 @@
 %section.block.first#profile
   %header
     .avatar
-      = link_to image_tag('avatar.png'), '#'
+      = link_to image_tag('avatar.png'), current_user
     .info
       .name
-        = link_to 'ButuzGOL', '#'
+        = link_to current_user.username, current_user
       .status
         Adventure into the center of the
         earth “Mark Twain” ...
     .counts
       %div
         .number
-          15
-        Records
+          = current_user.microposts.count
+        = 'Record'.pluralize
       %div
         .number
           30
-        Discussions
+        = 'Discussion'.pluralize
     .gradient
-  .content
-    .ff
-      .following
-        .turnabout
-          .alt
-            %span
-              18
-            Following
-          .wrapper
-            .left
-            %ul
-              - (0..5).each do |i|
-                %li
-                  .avatar
-                    = link_to image_tag('test-avatar.png'), '#'
-                  .hover
-            .right
-      .followers
-        .turnabout
-          .alt
-            %span
-              25
-            Followers
-          .wrapper
-            .left
-            %ul
-              - (0..5).each do |i|
-                %li
-                  .avatar
-                    = link_to image_tag('test-avatar.png'), '#'
-                  .hover
-            .right
+  - if current_user.followed_users.any? || current_user.followers.any? 
+    .content
+      .ff
+        - if current_user.followed_users.any?
+          .following
+            .turnabout
+              .alt
+                %span
+                  = current_user.followed_users.count
+                Following
+              .wrapper
+                - if current_user.followed_users.count > 4
+                  .left.hide
+                %ul
+                  - current_user.followed_users.each do user
+                    %li
+                      .avatar
+                        = link_to image_tag('test-avatar.png'), user
+                      .hover
+                - if current_user.followed_users.count > 4
+                  .right
+        - if current_user.followers.any?
+          .followers
+            .turnabout
+              .alt
+                %span
+                  = current_user.followers.count
+                Followers
+              .wrapper
+                - if current_user.followers.count > 4
+                  .left.hide
+                %ul
+                  - current_user.followers.each do user
+                    %li
+                      .avatar
+                        = link_to image_tag('test-avatar.png'), user
+                      .hover
+                - if current_user.followers.count > 4
+                  .right

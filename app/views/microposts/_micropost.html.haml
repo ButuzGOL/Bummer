@@ -1,0 +1,33 @@
+.record
+  .avatar
+    = link_to image_tag('avatar.png'), micropost.user
+  .second
+    %header
+      .name
+        = link_to micropost.user.username, micropost.user
+      .date
+        = time_ago_in_words(micropost.created_at) 
+        ago
+    .middle
+      .title
+        %span
+          / TODO: Has to be link to book has_one book example “Mark Twain” 1967
+          = micropost.name
+      .description
+        = wrap micropost.content
+    %footer
+      .stars
+        - (1..micropost.stars).each do |i|
+          .star
+      = link_to '', class: 'like two' do
+        .field
+          21
+      .discussions
+        = link_to '', class: 'item two' do
+          .field
+            88
+        .new
+      .social
+        = link_to 'Twitter', '#', class: 'twitter'
+        = link_to 'Facebook', '#', class: 'facebook'
+      .about

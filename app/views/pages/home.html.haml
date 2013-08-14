@@ -1,14 +1,35 @@
-%section#home
-  .row
-    .span10
-      / todo change this text
-      %h2
-        WELCOME
-      %p
-        Here you can record and discuss 
-        with your friends book or movie 
-        or game that you have just read or 
-        watched or played.
-        %a(title="Watch The Video" href="#") Watch The Video
-    .span6
-      = render 'layouts/footer'
+- if user_signed_in?
+  %section#home
+    .row
+      %aside.span10.main
+        %section.first.block#wall
+          %header
+            .title
+              Want to add something
+            .add
+            .remove.hide
+            .gradient
+          .form.hide    
+            = render 'microposts/form'  
+          .content
+            .records
+              = render 'microposts/feed'  
+      %aside.span6
+        = render 'shared/profile'
+        = render 'shared/discussions'
+        = render 'layouts/footer'
+- else
+  %section#home
+    .row
+      .span10
+        / todo change this text
+        %h2
+          WELCOME
+        %p
+          Here you can record and discuss 
+          with your friends book or movie 
+          or game that you have just read or 
+          watched or played.
+          %a(title="Watch The Video" href="#") Watch The Video
+      .span6
+        = render 'layouts/footer'
