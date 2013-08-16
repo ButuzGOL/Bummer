@@ -1,6 +1,5 @@
 # FIXME: make stars int
-# REVIEW: rename micropost to record
-class Micropost < ActiveRecord::Base
+class Record < ActiveRecord::Base
   attr_accessible :name, :content, :stars, :twitter_share, :facebook_share
 
   belongs_to :user
@@ -11,7 +10,7 @@ class Micropost < ActiveRecord::Base
   validates :stars, numericality: { only_integer: true, greater_than: 0, 
                                     less_than: 6 }
   
-  default_scope order: 'microposts.created_at DESC'
+  default_scope order: 'records.created_at DESC'
 
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
 

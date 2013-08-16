@@ -1,7 +1,7 @@
 Bummer::Application.routes.draw do
   resources :users, only: [:show]
 
-  resources :microposts, only: [:create, :destroy]
+  resources :records, only: [:create, :destroy]
 
   root to: 'pages#show', id: 'home'
 

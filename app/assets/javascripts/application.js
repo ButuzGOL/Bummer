@@ -15,7 +15,7 @@
 //= require rails.validations
 //= require sessions
 //= require pages
-//= require microposts
+//= require records
 //= require prettyCheckable
 //= require_directory ./lib
 

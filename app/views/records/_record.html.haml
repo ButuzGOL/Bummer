@@ -1,23 +1,23 @@
 .record
   .avatar
-    = link_to image_tag('avatar.png'), micropost.user
+    = link_to image_tag('avatar.png'), record.user
   .second
     %header
       .name
-        = link_to micropost.user.username, micropost.user
+        = link_to record.user.username, record.user
       .date
-        = time_ago_in_words(micropost.created_at) 
+        = time_ago_in_words(record.created_at) 
         ago
     .middle
       .title
         %span
           / TODO: Has to be link to book has_one book example “Mark Twain” 1967
-          = micropost.name
+          = record.name
       .description
-        = wrap micropost.content
+        = wrap record.content
     %footer
       .stars
-        - (1..micropost.stars).each do |i|
+        - (1..record.stars).each do |i|
           .star
       = link_to '', class: 'like two' do
         .field
