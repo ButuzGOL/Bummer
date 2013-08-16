@@ -6,6 +6,9 @@ class PagesController < HighVoltage::PagesController
       if user_signed_in?
         @record = current_user.records.build
         @records_feed = current_user.records_feed
+        
+        @discussions_recent = Discussion.first(5)
+        @discussions_popular = Discussion.order('comments_count DESC').first(5)
       end
     end
     super

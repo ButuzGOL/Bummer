@@ -1,24 +1,28 @@
-%section.block#discussions
-  %header
-    .title
-      Discussions
-    .icon
-    .gradient
-  .content
-    .discus
-      .first
-        .title
-          Most discussed
-        %ul
-          - (0..5).each do |i|
-            %li
-              = link_to 'Adventure the earth “Mark Twain”', '#', class: 'name'
-              = link_to '(15 comments)', '#', class: 'comments'
-      .second
-        .title
-          Recent added
-        %ul
-          - (0..5).each do |i|
-            %li
-              = link_to 'Adventure the earth “Mark Twain”', '#', class: 'name'
-              = link_to '(15 comments)', '#', class: 'comments'
+- if @discussions_popular.any? || @discussions_recent.any?
+  %section.block#discussions
+    %header
+      .title
+        Discussions
+      .icon
+      .gradient
+    .content
+      / TODO: make longer if one of row doesnot exists
+      .discus
+        - if @discussions_popular.any?
+          .first
+            .title
+              Most popular
+            %ul
+              - @discussions_popular.each do |discussion|
+                %li
+                  = link_to discussion.record.name, discussion, class: 'name'
+                  = link_to "(#{pluralize(discussion.comments.count, 'comment')})", '#', class: 'comments'
+        - if @discussions_recent.any?
+          .second
+            .title
+              Recent added
+            %ul
+              - @discussions_recent.each do |discussion|
+                %li
+                  = link_to discussion.record.name, discussion, class: 'name'
+                  = link_to "(#{pluralize(discussion.comments.count, 'comment')})", '#', class: 'comments'

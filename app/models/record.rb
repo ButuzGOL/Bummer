@@ -3,6 +3,7 @@ class Record < ActiveRecord::Base
   attr_accessible :name, :content, :stars, :twitter_share, :facebook_share
 
   belongs_to :user
+  has_many :discussion, dependent: :destroy
   
   validates :user_id, :name, :content, :stars, presence: true
 
