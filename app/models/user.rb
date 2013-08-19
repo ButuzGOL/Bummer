@@ -1,3 +1,4 @@
+# REVIEW: check string or text type
 class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable,
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
-                  :username, :login
+                  :username, :login, :location, :about, :website
   
   validates :username, presence: true, uniqueness: true
 
@@ -17,6 +18,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
   has_many :records, dependent: :destroy
+  has_many :discussions, through: :records
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: 'followed_id',

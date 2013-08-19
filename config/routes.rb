@@ -1,6 +1,4 @@
 Bummer::Application.routes.draw do
-  resources :users, only: [:show]
-
   resources :records, only: [:create, :destroy]
 
   root to: 'pages#show', id: 'home'
@@ -15,6 +13,9 @@ Bummer::Application.routes.draw do
     registrations: 'registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
+  resources :users, only: [:show]
+  resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

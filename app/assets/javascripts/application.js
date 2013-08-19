@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require rails.validations
+//= require main
 //= require sessions
 //= require pages
 //= require records

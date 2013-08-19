@@ -1,0 +1,16 @@
+- if @discussions.any?
+  %section.block#discussions
+    %header
+      .title
+        Discussions
+      .icon
+      .gradient
+    .content
+      .discus
+        .title
+          Discussions
+        %ul
+          - @discussions.each do |discussion|
+            %li
+              = link_to discussion.record.name, discussion, class: 'name'
+              = link_to "(#{pluralize(discussion.comments.count, 'comment')})", '#', class: 'comments'

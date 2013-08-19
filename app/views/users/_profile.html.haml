@@ -1,0 +1,63 @@
+%section.block.big.first#profile
+  %header
+    .avatar
+      = link_to image_tag('avatar.png'), @user
+    .info{class: ('full' if current_user?(@user))}
+      .name
+        = link_to @user.username, @user
+      .status
+        = @user.records.last.name
+    .counts
+      %div
+        .number
+          = @user.records.count
+        = 'Record'.pluralize
+      %div
+        .number
+          = @user.discussions.count
+        = 'Discussion'.pluralize
+    - unless current_user?(@user)
+      .actions
+        / FIXME: follow/unfollow jumping
+        = render 'follow_unfollow'
+        = link_to 'Message', '#', class: 'btn-primary pull-right btn'
+    .gradient
+  - if @user.followed_users.any? || @user.followers.any? 
+    .content
+      .ff
+        - if @user.followed_users.any?
+          .following
+            .turnabout
+              .alt
+                %span
+                  = @user.followed_users.count
+                Following
+              .wrapper
+                - if @user.followed_users.count > 4
+                  .left.hide
+                %ul
+                  - @user.followed_users.each do |user|
+                    %li
+                      .avatar
+                        = link_to image_tag('test-avatar.png'), user
+                      .hover
+                - if @user.followed_users.count > 4
+                  .right
+        - if @user.followers.any?
+          .followers
+            .turnabout
+              .alt
+                %span
+                  = @user.followers.count
+                Followers
+              .wrapper
+                - if @user.followers.count > 4
+                  .left.hide
+                %ul
+                  - @user.followers.each do |user|
+                    %li
+                      .avatar
+                        = link_to image_tag('test-avatar.png'), user
+                      .hover
+                - if @user.followers.count > 4
+                  .right

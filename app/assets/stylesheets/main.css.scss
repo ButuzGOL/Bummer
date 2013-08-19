@@ -7,6 +7,41 @@
 // TODO: long text cut it
 
 /* Mixins */
+@mixin profile() {
+  header { height: 100%;
+    .avatar, .info, .counts { float: left; margin-left: 10px; }
+    .avatar { margin-left: 0px; }
+    .info { width: 165px;
+      .name { font-size: 24px; font-weight: bold; a { color: $gray; &:hover { color: $blueLight; } } }
+      .status { font-size: 13px; font-style: italic; color: $grayLight; margin-top: 5px; }
+    }
+    .counts { width: 75px; color: $gray; font-size: 13px; font-weight: bold; text-align: center;
+              line-height: 13px;
+      div:nth-child(2) { margin-top: 4px; }
+      .number { font-size: 11px; }
+    }
+    .actions { margin-top: 15px;
+      a { margin-right: 10px;
+        &:first-child { margin-right: 0; }
+      }
+    }
+  }
+  .content {
+    .ff {
+      .followers { margin-top: 10px; }
+      .turnabout {
+        ul { width: 66px * 4 + 2px * 3; }
+      }
+    }
+  }
+  &.big {
+    header {
+      .info { width: 238px; 
+        &.full { width: 405px; }
+      }
+    }
+  }
+}
 
 /* Variables */
 
@@ -115,27 +150,7 @@ body>header {
   /* ----------- Shared Blocks */
   /* Profile */
   &#profile {
-    header { height: 100%;
-      .avatar, .info, .counts { float: left; margin-left: 10px; }
-      .avatar { margin-left: 0px; }
-      .info { width: 165px;
-        .name { font-size: 24px; font-weight: bold; a { color: $gray; &:hover { color: $blueLight; } } }
-        .status { font-size: 13px; font-style: italic; color: $grayLight; margin-top: 5px; }
-      }
-      .counts { width: 75px; color: $gray; font-size: 13px; font-weight: bold; text-align: center;
-                line-height: 13px;
-        div:nth-child(2) { margin-top: 4px; }
-        .number { font-size: 11px; }
-      }
-    }
-    .content {
-      .ff {
-        .followers { margin-top: 10px; }
-        .turnabout {
-          ul { width: 66px * 4 + 2px * 3; }
-        }
-      }
-    }
+    @include profile();
   }
 
   /* Discussions */
@@ -264,3 +279,4 @@ body>header {
 @import 'pages';
 @import 'sessions';
 @import 'records';
+@import 'users';

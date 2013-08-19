@@ -1,3 +1,18 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#profile {
+  @include profile();
+}
+
+// REVIEW: check icon size has to be the same
+.block {
+  &#about {
+    header {
+      .icon { width: 17px; height: 20px; background-image: asset-url('about-icon.png', image); }
+    }
+    .content {
+      dl { color: $gray; margin: 0; font-size: 13px;
+        dt { text-align: left; width: auto; margin-right: 10px; }
+        dd { margin-left: 0; }
+      }
+    }
+  }
+}

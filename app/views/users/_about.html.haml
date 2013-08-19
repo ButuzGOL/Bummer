@@ -1,0 +1,24 @@
+- if @user.location || @user.website || @user.about
+  %section.block#about
+    %header
+      .title
+        About
+      .icon
+      .gradient
+    .content
+      %dl.dl-horizontal
+        - if @user.location
+          %dt
+            Location:
+          %dd
+            = @user.location
+        - if @user.website
+          %dt
+            Website:
+          %dd
+            = link_to @user.website, @user.website
+        - if @user.about
+          %dt
+            About:
+          %dd
+            = @user.about

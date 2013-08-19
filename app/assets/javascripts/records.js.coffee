@@ -3,7 +3,7 @@ $(document).ready ->
 
   newRecordContentMaxLength = 300
 
-  enableDisableNewRecorcSubmit = ->
+  enableDisableNewRecordSubmit = ->
     $form = $ '#new_record'
 
     $form.find('[type=submit]').prop 'disabled', not (

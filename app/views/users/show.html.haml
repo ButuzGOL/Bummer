@@ -1,0 +1,27 @@
+/ FIXME: remove mess with ids
+%section#profile
+  .row
+    %aside.span10.main
+      = render 'users/profile'
+      %section.block#wall
+        - if @record
+          %header
+            .title
+              Want to add something
+            .add
+            .remove.hide
+            .gradient
+          .form.hide    
+            = render 'records/form'
+        - else
+          %header
+            .title
+              Records
+            .gradient
+        .content
+          .records
+            = render 'records/profile_feed'  
+    %aside.span6
+      = render 'users/about'
+      = render 'users/discussions'
+      = render 'layouts/footer'
