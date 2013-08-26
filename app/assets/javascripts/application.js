@@ -17,6 +17,8 @@
 //= require sessions
 //= require pages
 //= require records
+//= require discussions
 //= require prettyCheckable
 //= require_directory ./lib
+//= require bootstrap/bootstrap-modal
 

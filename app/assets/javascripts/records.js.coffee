@@ -1,11 +1,11 @@
-$(document).ready ->
+$ ->
   # _form
 
   newRecordContentMaxLength = 300
 
+  $form = $ '#new_record'
+  
   enableDisableNewRecordSubmit = ->
-    $form = $ '#new_record'
-
     $form.find('[type=submit]').prop 'disabled', not (
       $form.find('[name="record[name]"]').val().length and
       $form.find('[name="record[content]"]').val().length and
@@ -13,7 +13,7 @@ $(document).ready ->
         newRecordContentMaxLength and
       Number($form.find('[name="record[stars]"]').val()) isnt 0)
 
-  $('#new_record .stars .star').hover(
+  $form.find('.stars .star').hover(
     (e) ->
       $(@).parent().find('.star').removeClass 'full'
       index = $('.star').index $(@)
@@ -25,7 +25,7 @@ $(document).ready ->
         find('input[name="record[stars]"]').val()).addClass 'full'
   )
 
-  $('#new_record .stars .star').on 'click', (e) ->
+  $form.find('.stars .star').on 'click', (e) ->
     $(@).parent().find('.star').removeClass 'full'
     index = $('.star').index($(@)) + 1
     $(@).parent().find('.star').slice(0, index).addClass 'full'
@@ -33,11 +33,16 @@ $(document).ready ->
 
     enableDisableNewRecordSubmit()
 
-  $('#new_record [name="record[content]"]').simplyCountable
+  $form.find('[name="record[content]"]').simplyCountable
     counter: 'form footer .counter'
     maxCount: newRecordContentMaxLength
 
-  $('#new_record [type=text],textarea').on 'keyup paste cut', () ->
+  $form.find('[type=text],textarea').on 'keyup paste cut', () ->
     enableDisableNewRecordSubmit()
 
-  
+  $('[data-toggle="modal"][href="#new-discussion"]').on 'click', ->
+    $modal = $ '#new-discussion'
+
+    $modal.find('form [name="discussion[record_id]"]').val $(@).attr 'data-id'
+    $modal.find('.modal-header .title').text $(@).closest('.record').find('.title span').text()
+    $modal.find('form [name="discussion[content]"]').val($.trim($(@).closest('.record').find('.description').text())).trigger 'keyup'

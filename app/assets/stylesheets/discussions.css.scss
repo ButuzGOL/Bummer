@@ -1,0 +1,11 @@
+.modal {
+  &#new-discussion { margin: -99px 0 0 -281px;
+    .modal-header {
+      .title { background: asset-url('new-discussion.png', image) no-repeat; padding-left: 25px;  }
+    }
+    .form {
+      textarea { margin-bottom: 0; }
+      .social { margin-left: 0; }
+    }
+  }
+}

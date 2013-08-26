@@ -274,9 +274,48 @@ body>header {
   }
 }
 
+.form {
+  .name, .description { padding-right: 20px; }
+  .description {
+    textarea { height: 60px; resize: none; }
+  }
+  footer { @include clearfix();
+    .social { margin: 2px 0 0 95px; width: 120px; float: left;
+      label, input { float: left; }
+      label { margin: 3px 0 0 0; }
+      .twitter, .facebook { float: left; line-height: 0; }
+      .twitter {
+        label { background-image: asset-url('twitter-share-form-icon.png', image); width: 35px;
+          height: 26px; }
+      }
+      .facebook { margin-left: 5px;
+        label { background-image: asset-url('facebook-share-form-icon.png', image); width: 14px;
+          height: 26px; }
+      }
+    }
+    .counter { font-size: 20px; color: $grayLight; font-weight: bold; float: right; margin: 8px 10px 0 0; 
+        &.over { color: $redLight; }
+    }
+  }
+}
+
+.modal { @include border-radius(8px); border: 1px solid #d1d1d1;
+  $shadow: 0 5px 20px rgba(0,0,0,.7); @include box-shadow($shadow);
+  &>.modal-header { @include clearfix(); overflow: hidden; position: relative;
+    &>* { z-index: 2; position: relative; }
+    .gradient { width: 100%; height: 20px; @include gradient-vertical($white, #f6f6f6); position: absolute;
+                bottom: 0; left: 0; z-index: 1;
+    }
+    .title { color: $gray; font-size: 13px; font-weight: bold; float: left; }
+  }
+}
+
+.close { float: right; background-image: asset-url('close.png', image); width: 20px; height: 19px; cursor: pointer; }
+
 
 @import 'plugins';
 @import 'pages';
 @import 'sessions';
 @import 'records';
 @import 'users';
+@import 'discussions';

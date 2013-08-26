@@ -1,4 +1,4 @@
-$(document).ready ->
+$ ->
   window.ClientSideValidations.callbacks.element.fail = (element, message, callback, eventData) ->
     callback()
 

@@ -1,3 +1,4 @@
 - if @records_feed.any?
+  = render 'discussions/form'
   = render partial: 'records/record', collection: @records_feed, as: :record
   

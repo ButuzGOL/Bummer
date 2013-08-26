@@ -1,0 +1,22 @@
+.modal#new-discussion.hide.fade
+  .modal-header
+    .close(data-dismiss='modal')
+    .title
+      Adwenture of Tom Sawyer “Mark Twain” 1967              
+    .gradient
+  .form
+    = form_for(@discussion) do |f|
+      = f.hidden_field :record_id
+      .modal-body
+        .description
+          = f.text_area :content, class: 'input-full', placeholder: 'What is discussion about ...'
+      .modal-footer
+        %footer
+          .social
+            .twitter
+              = f.check_box :twitter_share, id: 'twitter-share'
+            .facebook
+              = f.check_box :facebook_share, id: 'facebook-share'
+          = f.submit 'SUBMIT', class: 'btn-primary pull-right btn', disabled: true
+          .counter
+  

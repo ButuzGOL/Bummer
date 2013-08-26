@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818092425) do
+ActiveRecord::Schema.define(:version => 20130826051435) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(:version => 20130818092425) do
   create_table "discussions", :force => true do |t|
     t.text     "content"
     t.integer  "record_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "comments_count", :default => 0
+    t.boolean  "twitter_share",  :default => false
+    t.boolean  "facebook_share", :default => false
   end
 
   add_index "discussions", ["record_id"], :name => "index_discussions_on_record_id"

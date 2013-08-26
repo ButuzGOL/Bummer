@@ -1,31 +1,11 @@
 #wall {
-  .form  { border-bottom: 1px solid #f0f0f0;
-    .name, .description { padding-right: 20px; }
-    .description {
-      textarea { height: 60px; resize: none; }
-    }
-    footer { @include clearfix();
+  &>.form { border-bottom: 1px solid #f0f0f0;
+    footer { 
       .stars { float: left; margin-top: 5px;
         .star { cursor: pointer; background-image: asset-url('star.png', image); width: 25px; height: 26px;
           float: left;
           &:hover, &.full, &.hover { background-image: asset-url('star-full.png', image); }
         }
-      }
-      .social { margin: 3px 0 0 95px; width: 120px; float: left;
-        label, input { float: left; }
-        label { margin: 3px 0 0 0; }
-        .twitter, .facebook { float: left; line-height: 0; }
-        .twitter {
-          label { background-image: asset-url('twitter-share-form-icon.png', image); width: 35px;
-            height: 26px; }
-        }
-        .facebook { margin-left: 5px;
-          label { background-image: asset-url('facebook-share-form-icon.png', image); width: 14px;
-            height: 26px; }
-        }
-      }
-      .counter { font-size: 20px; color: $grayLight; font-weight: bold; float: right; margin: 8px 10px 0 0; 
-          &.over { color: $redLight; }
       }
     }
   }

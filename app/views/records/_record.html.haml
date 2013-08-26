@@ -10,6 +10,7 @@
         ago
     .middle
       .title
+        / REVIEW: why span ?
         %span
           / TODO: Has to be link to book has_one book example “Mark Twain” 1967
           = record.name
@@ -26,7 +27,7 @@
         = link_to '', class: 'item two' do
           .field
             88
-        .new
+        = link_to '', '#new-discussion', class: 'new', 'data-toggle' => 'modal', 'data-id' => record.id
       .social
         = link_to 'Twitter', '#', class: 'twitter'
         = link_to 'Facebook', '#', class: 'facebook'
