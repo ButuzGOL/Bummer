@@ -2,6 +2,9 @@ class DiscussionsController < ApplicationController
 
   def show
     @discussion = Discussion.find(params[:id])
+    # FIXME: optimize this two line
+    @discussions_recent = Discussion.first(5)
+    @discussions_popular = Discussion.order('comments_count DESC').first(5)
   end
 
   def create

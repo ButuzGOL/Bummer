@@ -24,9 +24,10 @@
         .field
           21
       .discussions
-        = link_to '', class: 'item two' do
-          .field
-            88
+        - record.discussions.each do |discussion|
+          = link_to discussion, class: "item #{discussion.comments.count > 10 ? 'two' : 'one'}" do
+            .field
+              = discussion.comments.count
         = link_to '', '#new-discussion', class: 'new', 'data-toggle' => 'modal', 'data-id' => record.id
       .social
         = link_to 'Twitter', '#', class: 'twitter'

@@ -1,0 +1,18 @@
+%section#discussion
+  .row
+    %aside.span10.main
+      %section.first.block#discussion
+        .content
+          = render 'discussion'
+      %section.block#comments
+        %header
+          .title
+            Comments
+          .gradient
+        .form.hide    
+          = render 'comments/form'
+        / = render 'comments/profile_feed'  
+    %aside.span6
+      = render 'shared/profile'
+      = render 'shared/discussions'
+      = render 'layouts/footer'

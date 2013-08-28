@@ -26,7 +26,7 @@
       }
     }
   }
-  .content {
+  .content { padding: 10px;
     .ff {
       .followers { margin-top: 10px; }
       .turnabout {
@@ -158,7 +158,7 @@ body>header {
     header {
       .icon { width: 22px; height: 20px; background-image: asset-url('discussions-icon.png', image); }
     }
-    .content {
+    .content { padding: 10px;
       .discus { @include clearfix();
         .first, .second { float: left; margin-left: 10px; width: 318px / 2 - 5; }
         .first { margin-left: 0; }

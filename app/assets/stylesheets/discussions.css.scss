@@ -1,3 +1,16 @@
+#discussion { position: relative; z-index: 2;
+  .content { padding: 0px;
+    .record { color: $gray; @include clearfix(); padding: 10px; }
+    .discussing {  border-top: 1px solid #f0f0f0; padding: 10px;
+      .turnabout {
+        ul { width: 66px * 7 + 8px * 6; margin: 0 5px;
+          li { margin-left: 8px; }
+        }
+      }
+    }
+  }
+}
+
 .modal {
   &#new-discussion { margin: -99px 0 0 -281px;
     .modal-header {

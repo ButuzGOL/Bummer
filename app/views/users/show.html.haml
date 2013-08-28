@@ -2,7 +2,7 @@
 %section#profile
   .row
     %aside.span10.main
-      = render 'users/profile'
+      = render 'profile'
       %section.block#wall
         - if @record
           %header
@@ -22,6 +22,6 @@
           .records
             = render 'records/profile_feed'  
     %aside.span6
-      = render 'users/about'
-      = render 'users/discussions'
+      = render 'about'
+      = render 'shared/discussions'
       = render 'layouts/footer'
