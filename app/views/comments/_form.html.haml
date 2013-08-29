@@ -1,0 +1,14 @@
+= form_for([@discussion, @discussion.comments.build]) do |f|
+  .avatar
+    = link_to image_tag( 'avatar.png'), current_user
+  .second
+    .description
+      = f.text_area :content, class: 'input-full', placeholder: 'Type your comment here ...'    
+    %footer
+      .social
+        .twitter
+          = f.check_box :twitter_share, id: 'twitter-share'
+        .facebook
+          = f.check_box :facebook_share, id: 'facebook-share'
+      = f.submit 'SUBMIT', class: 'btn-primary pull-right btn', disabled: true
+      .counter

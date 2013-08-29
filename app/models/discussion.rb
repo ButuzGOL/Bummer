@@ -7,7 +7,8 @@ class Discussion < ActiveRecord::Base
   default_scope order: 'discussions.created_at DESC'
 
   def discussing
-    discussing = comments.all.collect(&:user)
+    # OPTIMIZE: make another way 
+    discussing = comments.all.collect(&:user).uniq
     if !discussing.include? record.user
       discussing.unshift record.user
     end

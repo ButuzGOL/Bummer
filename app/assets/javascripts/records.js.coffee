@@ -1,16 +1,16 @@
 $ ->
   # _form
 
-  newRecordContentMaxLength = 300
+  contentMaxLength = 300
 
   $form = $ '#new_record'
   
-  enableDisableNewRecordSubmit = ->
+  enableDisableSubmit = ->
     $form.find('[type=submit]').prop 'disabled', not (
       $form.find('[name="record[name]"]').val().length and
       $form.find('[name="record[content]"]').val().length and
       $form.find('[name="record[content]"]').val().length <= 
-        newRecordContentMaxLength and
+        contentMaxLength and
       Number($form.find('[name="record[stars]"]').val()) isnt 0)
 
   $form.find('.stars .star').hover(
@@ -31,14 +31,14 @@ $ ->
     $(@).parent().find('.star').slice(0, index).addClass 'full'
     $(@).closest('form').find('input[name="record[stars]"]').val index
 
-    enableDisableNewRecordSubmit()
+    enableDisableSubmit()
 
   $form.find('[name="record[content]"]').simplyCountable
-    counter: 'form footer .counter'
-    maxCount: newRecordContentMaxLength
+    counter: $form.find '.counter'
+    maxCount: contentMaxLength
 
   $form.find('[type=text],textarea').on 'keyup paste cut', () ->
-    enableDisableNewRecordSubmit()
+    enableDisableSubmit()
 
   $('[data-toggle="modal"][href="#new-discussion"]').on 'click', ->
     $modal = $ '#new-discussion'

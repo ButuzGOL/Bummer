@@ -1,6 +1,5 @@
 Bummer::Application.routes.draw do
-  resources :records, only: [:create, :destroy]
-
+  
   root to: 'pages#show', id: 'home'
 
   devise_for :users, controllers: { 
@@ -14,9 +13,15 @@ Bummer::Application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
+  resources :records, only: [:create, :destroy]
   resources :users, only: [:show]
   resources :relationships, only: [:create, :destroy]
   resources :discussions, only: [:create, :show]
+  resources :comments, only: [:create]
+
+  resources :discussions do
+    resources :comments
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

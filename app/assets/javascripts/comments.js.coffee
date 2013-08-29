@@ -1,3 +1,20 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  # _form
+
+  contentMaxLength = 300
+
+  $form = $ '#new_comment'
+
+  enableDisableSubmit = ->
+
+    $form.find('[type=submit]').prop 'disabled', not (
+      $form.find('[name="comment[content]"]').val().length and
+      $form.find('[name="comment[content]"]').val().length <= 
+        contentMaxLength)
+
+  $form.find('[name="comment[content]"]').simplyCountable
+    counter: $form.find '.counter'
+    maxCount: contentMaxLength
+
+  $form.find('textarea').on 'keyup paste cut', () ->
+    enableDisableSubmit()

@@ -1,3 +1,32 @@
-// Place all the styles related to the Comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#comments {
+  header {
+    .icon { width: 22px; height: 20px; background-image: asset-url('comments-icon.png', image); }
+  }
+  .content { padding: 0px;
+    .form { @include clearfix();
+      .avatar, .second { float: left; }
+      .second { margin-left: 10px; width: 490px;
+        textarea { height: 40px; }
+      }
+    }
+    .comments {
+      $padding: 40px;
+      ul {
+        li li { .record { padding-left: 10px + $padding; .second { width: 490px - $padding; } }
+          li { .record { padding-left: 10px + $padding * 2; .second { width: 490px - $padding * 2; } }
+            li { .record { padding-left: 10px + $padding * 3; .second { width: 490px - $padding * 3; } }
+              li { .record { padding-left: 10px + $padding * 4; .second { width: 490px - $padding * 4; } } }
+            }
+          }
+        }
+      }
+      .record { border-bottom: 1px solid #f0f0f0;
+        .reply { display: none; }
+        &:hover { background-color: #e5f7fd;
+          .reply { display: block; }
+        }
+        .like { margin-left: 0; }
+      }
+    }
+  }
+}

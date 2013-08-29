@@ -1,20 +1,20 @@
 $ ->
   # _form
 
-  newDiscussionContentMaxLength = 300
+  contentMaxLength = 300
 
   $form = $ '#new_discussion'
 
-  enableDisableNewDiscussionSubmit = ->
+  enableDisableSubmit = ->
 
     $form.find('[type=submit]').prop 'disabled', not (
       $form.find('[name="discussion[content]"]').val().length and
       $form.find('[name="discussion[content]"]').val().length <= 
-        newDiscussionContentMaxLength)
+        contentMaxLength)
 
   $form.find('[name="discussion[content]"]').simplyCountable
-    counter: 'form footer .counter'
-    maxCount: newDiscussionContentMaxLength
+    counter: $form.find '.counter'
+    maxCount: contentMaxLength
 
   $form.find('[type=text],textarea').on 'keyup paste cut', () ->
-    enableDisableNewDiscussionSubmit()
+    enableDisableSubmit()

@@ -9,9 +9,10 @@
           .title
             Comments
           .gradient
-        .form.hide    
-          = render 'comments/form'
-        / = render 'comments/profile_feed'  
+        .content
+          .form    
+            = render 'comments/form'
+          / = render 'comments/profile_feed'  
     %aside.span6
       = render 'shared/profile'
       = render 'shared/discussions'
