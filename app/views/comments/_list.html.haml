@@ -1,0 +1,4 @@
+- if @discussion.comments.any?
+  %ul.comments
+    %li
+      = render partial: 'comments/comment', collection: @discussion.comments 
