@@ -25,6 +25,7 @@
           21
       .discussions
         - record.discussions.each do |discussion|
+          / FIXME: #{discussion.comments.count > 10 ? 'two' : 'one'} move to helper
           = link_to discussion, class: "item #{discussion.comments.count > 10 ? 'two' : 'one'}" do
             .field
               = discussion.comments.count
