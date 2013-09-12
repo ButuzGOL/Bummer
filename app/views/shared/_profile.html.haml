@@ -24,9 +24,10 @@
           .following
             .turnabout
               .alt
-                %span
-                  = current_user.followed_users.count
-                Following
+                = link_to following_user_path(current_user) do
+                  %span
+                    = current_user.followed_users.count
+                  Following
               .wrapper
                 - if current_user.followed_users.count > 4
                   .left.hide
