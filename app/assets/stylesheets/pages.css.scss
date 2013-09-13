@@ -35,15 +35,14 @@
       &:hover { background-image: asset-url('remove-record-form-hover.png', image); }
     }
   }
-  &>.content { padding: 0; padding-bottom: 10px;
+  &>.content { padding-bottom: 10px;
     .records { @include clearfix();
-      .record { border-bottom: 1px solid #f0f0f0;
+      .record {
         .discussion .new, .social, .more { display: none; }
-        &:hover { background-color: #e5f7fd;
+        &:hover {
           .discussion .new, .social, .more { display: block; }
         }
       }
     }
   }
-
 }

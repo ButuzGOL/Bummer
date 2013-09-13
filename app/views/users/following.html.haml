@@ -1,4 +1,4 @@
-%section#fallowing
+%section#following
   .row
     %aside.span10.main
       %section.first.block
@@ -8,7 +8,7 @@
           .gradient
         .content
           .records
-            
+            = render partial: 'user', collection: @users
     %aside.span6
       = render 'shared/profile'
       = render 'shared/discussions'

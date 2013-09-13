@@ -1,2 +1,2 @@
 :plain
-  $('#follow-unfollow').html('#{escape_javascript(render("users/follow"))}')
+  $('#follow-unfollow').html('#{escape_javascript(render(partial: "users/follow", object: @user, as: :user))}')

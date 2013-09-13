@@ -20,13 +20,16 @@
           }
         }
       }
-      .record { border-bottom: 1px solid #f0f0f0;
-        .reply { display: none; }
-        &:hover { background-color: #e5f7fd;
-          .reply { display: block; }
-        }
-        .like { margin-left: 0; }
-      }
     }
+  }
+}
+
+.record {
+  &.comment { border-bottom: 1px solid #f0f0f0;
+    .reply { display: none; }
+    &:hover { background-color: #e5f7fd;
+      .reply { display: block; }
+    }
+    .like { margin-left: 0; }
   }
 }

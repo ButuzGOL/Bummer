@@ -19,7 +19,7 @@
     - unless current_user?(@user)
       .actions
         / FIXME: follow/unfollow jumping
-        = render 'follow_unfollow'
+        = render partial: 'follow_unfollow', object: @user, as: :user
         = link_to 'Message', '#', class: 'btn-primary pull-right btn'
     .gradient
   - if @user.followed_users.any? || @user.followers.any? 

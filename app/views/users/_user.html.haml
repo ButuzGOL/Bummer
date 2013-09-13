@@ -1,0 +1,22 @@
+.record.user
+  .avatar
+    = link_to image_tag('avatar.png'), user
+  .second
+    .info{class: ('full' if current_user?(user))}
+      .name
+        = link_to user.username, user
+      .status
+        = current_user.records.last.name
+    .counts
+      %div
+        .number
+          = user.records.count
+        = 'Record'.pluralize
+      %div
+        .number
+          = user.discussions.count
+        = 'Discussion'.pluralize
+    - unless current_user?(user)
+      .actions
+        / FIXME: follow/unfollow jumping
+        = render partial: 'follow_unfollow', object: user, as: :user

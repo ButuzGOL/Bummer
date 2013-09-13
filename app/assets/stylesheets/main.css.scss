@@ -26,7 +26,7 @@
       }
     }
   }
-  .content {
+  .content { padding: 10px;
     .ff {
       .followers { margin-top: 10px; }
       .turnabout {
@@ -145,8 +145,7 @@ body>header {
     .icon { float: right; }
   }
   .form { padding: 10px; }
-  .content { padding: 10px; }
-
+  
   /* ----------- Shared Blocks */
   /* Profile */
   &#profile {
@@ -176,7 +175,8 @@ body>header {
   }
 }
 
-.record { color: $gray; @include clearfix(); padding: 10px;
+.record { color: $gray; @include clearfix(); padding: 10px; border-bottom: 1px solid #f0f0f0;
+  &:hover { background-color: #e5f7fd; }
   .avatar, .second { float: left; }
   .second { margin-left: 10px; width: 490px; }
   header { @include clearfix();
