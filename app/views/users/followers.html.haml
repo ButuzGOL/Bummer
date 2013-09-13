@@ -1,0 +1,15 @@
+%section#followers
+  .row
+    %aside.span10.main
+      %section.first.block
+        %header
+          .title
+            Followers
+          .gradient
+        .content
+          .records
+            = render partial: 'user', collection: @users
+    %aside.span6
+      = render 'shared/profile'
+      = render 'shared/discussions'
+      = render 'layouts/footer'

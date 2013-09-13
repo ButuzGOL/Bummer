@@ -29,9 +29,10 @@
           .following
             .turnabout
               .alt
-                %span
-                  = @user.followed_users.count
-                Following
+                = link_to following_user_path(@user) do
+                  %span
+                    = @user.followed_users.count
+                  Following
               .wrapper
                 - if @user.followed_users.count > 4
                   .left.hide
@@ -47,9 +48,10 @@
           .followers
             .turnabout
               .alt
-                %span
-                  = @user.followers.count
-                Followers
+                = link_to followers_user_path(current_user) do
+                  %span
+                    = @user.followers.count
+                  Followers
               .wrapper
                 - if @user.followers.count > 4
                   .left.hide

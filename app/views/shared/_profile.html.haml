@@ -43,9 +43,10 @@
           .followers
             .turnabout
               .alt
-                %span
-                  = current_user.followers.count
-                Followers
+                = link_to followers_user_path(current_user) do
+                  %span
+                    = current_user.followers.count
+                  Followers
               .wrapper
                 - if current_user.followers.count > 4
                   .left.hide

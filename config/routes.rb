@@ -25,7 +25,7 @@ Bummer::Application.routes.draw do
 
   resources :users do
     member do
-      get :following
+      get :following, :followers
     end
   end
 
