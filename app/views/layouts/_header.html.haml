@@ -18,6 +18,13 @@
                 .count
                   2
             %ul.nav.pull-right.top-nav
+              %li.search
+                .wrapper
+                  = link_to 'Search', '#', id: 'search-submit'
+                  .hover
+                .input
+                  %form.navbar-search
+                    %input.search-query.span3(placeholder='Search' type='text' style='width: 0; display: none;')
               %li.setting
                 = link_to 'Settings', '#'
                 .hover

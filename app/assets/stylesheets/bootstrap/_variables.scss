@@ -13,7 +13,7 @@ $black:                 #000 !default;
 $grayDarker:            #222 !default;
 $grayDark:              #333 !default;
 $gray:                  #666 !default;
-$grayLightA:			#8D9296 !default;
+$grayLightA:            #8D9296 !default;
 $grayLight:             #c3c9ce !default;
 $grayLighter:           #eee !default;
 $white:                 #fff !default;
@@ -199,6 +199,12 @@ $navbarLinkBackgroundHover:       transparent !default;
 $navbarLinkBackgroundActive:      darken($navbarBackground, 5%) !default;
 
 $navbarBrandColor:                $navbarLinkColor !default;
+
+$navbarSearchBackground:          #1f1f1f;
+$navbarSearchBackgroundFocus:     $white !default;
+$navbarSearchBorder:              darken($navbarSearchBackground, 30%) !default;
+$navbarSearchColor:               $grayLighter !default;
+$navbarSearchPlaceholderColor:    $grayLighter !default;  
 
 // Inverted navbar
 $navbarInverseBackground:                #111111 !default;

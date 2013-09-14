@@ -87,9 +87,9 @@ body>header {
       &.profile a { background: asset-url('nbm-profile.png', image) no-repeat 7px 6px; }
       &.message a { background: asset-url('nbm-message.png', image) no-repeat 4px 6px; }
       &.search {
-        .wrapper { margin-left: 143px; position: relative; }
+        .wrapper { float: left; position: relative; }
         a { background: asset-url('nbm-search.png', image) no-repeat 6px 6px; }
-        .input { position: absolute; top: 0; left: 6px; }
+        .input { float: left; }
       }
       &.setting a { background: asset-url('nbm-setting.png', image) no-repeat 5px 6px; }
       &.sign-in {
