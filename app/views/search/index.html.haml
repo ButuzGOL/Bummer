@@ -1,0 +1,18 @@
+%section#search
+  .row
+    %aside.span10.main
+      %section.first.block
+        %header
+          .title
+            Search results:
+            %span
+              = params[:query]
+          .gradient
+        .content
+          .records
+            = render partial: 'records/record', collection: @records
+            = render partial: 'discussions/discussion', collection: @discussions
+            = render partial: 'users/user', collection: @users
+    %aside.span6
+      = render 'shared/profile'
+      = render 'layouts/footer'

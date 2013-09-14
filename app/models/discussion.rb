@@ -14,4 +14,9 @@ class Discussion < ActiveRecord::Base
     end
     discussing
   end
+
+  def self.search(query)
+    find(:all, conditions: ['content LIKE ?', "%#{query}%"])
+  end
+
 end

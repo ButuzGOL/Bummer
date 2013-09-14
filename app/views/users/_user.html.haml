@@ -19,4 +19,4 @@
     - unless current_user?(user)
       .actions
         / FIXME: follow/unfollow jumping
-        = render partial: 'follow_unfollow', object: user, as: :user
+        = render partial: 'users/follow_unfollow', object: user, as: :user

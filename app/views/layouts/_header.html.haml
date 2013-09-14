@@ -23,8 +23,8 @@
                   = link_to 'Search', '#', id: 'search-submit'
                   .hover
                 .input
-                  %form.navbar-search
-                    %input.search-query.span3(placeholder='Search' type='text' style='width: 0; display: none;')
+                = form_for '', url: search_path, method: :get, html: { id: 'search-form', class: 'navbar-search' } do |f|
+                  = f.text_field 'query', value: params[:query], placeholder: 'Search', class: 'search-query span3', style: !is_search_path? ? 'width: 0; display: none;' : ''
               %li.setting
                 = link_to 'Settings', '#'
                 .hover

@@ -19,6 +19,7 @@
 //= require records
 //= require discussions
 //= require comments
+//= require search
 //= require prettyCheckable
 //= require_directory ./lib
 //= require bootstrap/bootstrap-modal

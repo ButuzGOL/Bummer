@@ -19,20 +19,18 @@
   }
 }
 
-.record {
-  &.user {
-    .second { width: auto; }
-    .avatar, .info, .counts, .actions { float: left; }
-    .info { width: 318px;
-      .name { font-size: 15px; font-weight: bold; a { color: $gray; &:hover { color: $blueLight; } } }
-      .status { font-size: 13px; font-style: italic; color: $grayLight; margin-top: 5px; }
-      &.full { width: 405px; }
-    }
-    .counts { width: 75px; color: $gray; font-size: 13px; font-weight: bold; text-align: center;
-              line-height: 13px; margin-left: 10px;
-      div:nth-child(2) { margin-top: 4px; }
-      .number { font-size: 11px; }
-    }
-    .actions { margin: 15px 0 0 10px; }
+.record.user {
+  .second { width: auto; }
+  .avatar, .info, .counts, .actions { float: left; }
+  .info { width: 318px;
+    .name { font-size: 15px; font-weight: bold; a { color: $gray; &:hover { color: $blueLight; } } }
+    .status { font-size: 13px; font-style: italic; color: $grayLight; margin-top: 5px; }
+    &.full { width: 405px; }
   }
+  .counts { width: 75px; color: $gray; font-size: 13px; font-weight: bold; text-align: center;
+            line-height: 13px; margin-left: 10px;
+    div:nth-child(2) { margin-top: 4px; }
+    .number { font-size: 11px; }
+  }
+  .actions { margin: 15px 0 0 10px; }
 }

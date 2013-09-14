@@ -1,42 +1,43 @@
-.record
-  %header
-    .title
-      %span
-        = @discussion.record.name
-    .date
-      = time_ago_in_words(@discussion.created_at)
-      ago
-  .middle
-    .description
-      = wrap @discussion.content
-  %footer
-    .stars
-      - (1..@discussion.record.stars).each do |i|
-        .star
-    = link_to '', class: 'like two' do
-      .field
-        21
-    .discussions
-      = link_to '#discussion-comments', class: "item #{@discussion.comments.count > 10 ? 'two' : 'one'}" do
-        .field
-          = @discussion.comments.count
-    .social
-      = link_to 'Twitter', '#', class: 'twitter'
-      = link_to 'Facebook', '#', class: 'facebook'
-    .about
-- if @discussion.discussing.any?
-  .discussing
-    .turnabout
-      .alt
+.record.discussion
+  .wrapper.clearfix
+    %header
+      .title
         %span
-          = @discussion.discussing.count
-        Discussing
-      .wrapper
-        .left
-        %ul
-          - @discussion.discussing.each do |user|
-            %li
-              .avatar
-                = link_to image_tag('test-avatar.png'), user
-              .hover
-        .right
+          = discussion.record.name
+      .date
+        = time_ago_in_words(discussion.created_at)
+        ago
+    .middle
+      .description
+        = wrap discussion.content
+    %footer
+      .stars
+        - (1..discussion.record.stars).each do |i|
+          .star
+      = link_to '', class: 'like two' do
+        .field
+          21
+      .discussions
+        = link_to '#discussion-comments', class: "item #{discussion.comments.count > 10 ? 'two' : 'one'}" do
+          .field
+            = discussion.comments.count
+      .social
+        = link_to 'Twitter', '#', class: 'twitter'
+        = link_to 'Facebook', '#', class: 'facebook'
+      .about
+  - if discussion.discussing.any?
+    .discussing
+      .turnabout
+        .alt
+          %span
+            = discussion.discussing.count
+          Discussing
+        .wrapper
+          .left
+          %ul
+            - discussion.discussing.each do |user|
+              %li
+                .avatar
+                  = link_to image_tag('test-avatar.png'), user
+                .hover
+          .right

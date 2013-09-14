@@ -1,5 +1,7 @@
 Bummer::Application.routes.draw do
   
+  match '/search' => 'search#index'
+
   root to: 'pages#show', id: 'home'
 
   devise_for :users, controllers: { 

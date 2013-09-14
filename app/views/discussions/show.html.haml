@@ -3,7 +3,7 @@
     %aside.span10.main
       %section.first.block#discussion
         .content
-          = render 'discussion'
+          = render partial: 'discussion', object: @discussion, as: :discussion
       %section.block#comments
         %header
           .title

@@ -68,6 +68,11 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.search(query)
+    find(:all, conditions: ['username LIKE ?', "%#{query}%"])
+  end
+
+
   def records_feed
     Record.from_users_followed_by(self)
   end
